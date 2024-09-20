@@ -1,4 +1,4 @@
-import { compile } from '@ton-community/blueprint';
+import { compile } from '@ton/blueprint';
 import { LibraryDeployer } from '../wrappers/library-deployer';
 
 export async function run() {
