@@ -1,6 +1,6 @@
-import { Dictionary, toNano } from 'ton-core';
+import { Dictionary, toNano } from '@ton/core';
 import { WalletId, WalletV5 } from '../wrappers/wallet-v5';
-import { compile, NetworkProvider } from '@ton-community/blueprint';
+import { compile, NetworkProvider } from '@ton/blueprint';
 import { getSecureRandomBytes, keyPairFromSeed } from 'ton-crypto';
 
 export async function run(provider: NetworkProvider) {
@@ -11,6 +11,7 @@ export async function run(provider: NetworkProvider) {
     const walletV5 = provider.open(
         WalletV5.createFromConfig(
             {
+                signatureAllowed: false,
                 seqno: 0,
                 walletId: new WalletId({ networkGlobalId: -3 }).serialized, // testnet
                 publicKey: keypair.publicKey,
